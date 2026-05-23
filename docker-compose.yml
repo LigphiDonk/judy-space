@@ -6,3 +6,8 @@ services:
     restart: unless-stopped
     ports:
       - "8090:80"
+    volumes:
+      - judy-space-data:/data
+
+volumes:
+  judy-space-data:

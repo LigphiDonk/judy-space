@@ -1,6 +1,8 @@
 # Judy's Space
 
-一个 Vite + React 的纯前端应用。数据通过浏览器本地 IndexedDB/localForage 保存，部署到 VPS 后不会自动同步到服务器；同一个浏览器才能看到自己保存的数据。
+一个 Vite + React 应用，生产环境由 Node/Express 托管静态页面并提供 `/api/state` 接口。数据保存在服务器 Docker volume 中的 `/data/state.json`，不同手机和浏览器访问同一个 VPS 地址会共享同一份数据。
+
+浏览器本地 IndexedDB/localForage 只作为后端不可用时的兜底缓存；首次部署新版本后，会尝试把当前浏览器已有的本地数据迁移到服务器。
 
 ## 本地运行
 
@@ -33,6 +35,12 @@ http://localhost:8090
 
 ```bash
 docker compose down
+```
+
+查看服务器端数据卷：
+
+```bash
+docker volume inspect judy-space_judy-space-data
 ```
 
 ## 部署到 VPS
@@ -126,5 +134,8 @@ sudo systemctl reload caddy
 每次代码更新后，在 VPS 项目目录执行：
 
 ```bash
+git pull
 docker compose up -d --build
 ```
+
+正常更新不要删除 Docker volume，否则服务器上保存的纪念日、清单、经期记录和照片会丢失。
