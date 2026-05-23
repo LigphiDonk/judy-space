@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Mali:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&family=ZCOOL+KuaiLe&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "PingFang SC", "Microsoft YaHei", "Nunito", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "ZCOOL KuaiLe", cursive;
+  --font-handwriting: "Mali", cursive;
+  --color-primary-50: #FFF9F5;
+  --color-primary-100: #FFDAC1;
+  --color-primary-200: #B5EAD7;
+  --color-primary-300: #FFB7B2;
+  --color-primary-400: #FF8B94;
+  --color-primary-500: #FF8B94;
+  --color-primary-600: #E5A885;
+}
+
+@utility pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 20px);
+}
+
+@utility custom-scrollbar {
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: var(--color-primary-200);
+    border-radius: 9999px;
+  }
+}
+
+@utility cute-shadow {
+  box-shadow: 0 8px 0px rgba(255, 139, 148, 0.2);
+}
+
+@utility polaroid {
+  transform: rotate(-2deg);
+}
+
+@utility polaroid-alt {
+  transform: rotate(3deg);
+}
+
+body {
+  background-color: var(--color-primary-50);
+  color: #4b5563;
+}
+

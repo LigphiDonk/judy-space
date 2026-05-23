@@ -1,0 +1,6 @@
+{
+  "name": "Judy的专属空间",
+  "description": "为女朋友量身定制的温馨应用：包含经期记录、纪念日倒计时、每日计划、天气和专属相册。",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

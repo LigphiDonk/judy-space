@@ -1,0 +1,8 @@
+services:
+  judy-space:
+    build: .
+    image: judy-space:latest
+    container_name: judy-space
+    restart: unless-stopped
+    ports:
+      - "8080:80"
