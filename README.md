@@ -26,7 +26,7 @@ docker compose up -d --build
 打开：
 
 ```text
-http://localhost:8080
+http://localhost:8090
 ```
 
 停止：
@@ -82,13 +82,13 @@ docker compose ps
 4. 放行端口：
 
 ```bash
-sudo ufw allow 8080/tcp
+sudo ufw allow 8090/tcp
 ```
 
 访问：
 
 ```text
-http://你的服务器IP:8080
+http://你的服务器IP:8090
 ```
 
 ## 绑定域名和 HTTPS
@@ -109,7 +109,7 @@ sudo apt install -y caddy
 
 ```caddyfile
 your-domain.com {
-  reverse_proxy 127.0.0.1:8080
+  reverse_proxy 127.0.0.1:8090
 }
 ```
 
