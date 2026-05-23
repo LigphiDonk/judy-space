@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Judy Space">
+  <rect width="64" height="64" rx="18" fill="#ff8b94"/>
+  <path d="M32 51s-2.9-2.2-6.6-5.4C17.9 39.1 12 33.4 12 25.4 12 19.6 16.4 15 22 15c3.4 0 6.7 1.7 8.7 4.5C32.7 16.7 36 15 39.4 15 45 15 50 19.6 50 25.4c0 8-6.2 13.8-13.6 20.2C34.7 47.1 33.2 48.4 32 51Z" fill="#fff"/>
+  <text x="32" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="800" fill="#ff8b94">J</text>
+</svg>

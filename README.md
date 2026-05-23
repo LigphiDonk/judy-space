@@ -129,6 +129,23 @@ sudo systemctl reload caddy
 
 域名 DNS 的 A 记录需要指向你的 VPS IP。
 
+## 添加到 iPhone 主屏幕
+
+部署完成后，用 iPhone Safari 打开网站：
+
+```text
+http://你的服务器IP:8090
+```
+
+或绑定 HTTPS 域名后打开你的域名。然后：
+
+1. 点击 Safari 底部的分享按钮。
+2. 选择「添加到主屏幕」。
+3. 名称使用 `Judy Space`。
+4. 点击「添加」。
+
+项目已包含 PWA manifest、iPhone 桌面图标和 standalone 打开配置。
+
 ## 更新部署
 
 每次代码更新后，在 VPS 项目目录执行：

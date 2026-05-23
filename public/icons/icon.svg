@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Judy Space">
+  <rect width="512" height="512" rx="120" fill="#fff9f5"/>
+  <rect x="34" y="34" width="444" height="444" rx="104" fill="#ff8b94"/>
+  <path d="M256 401s-24-18.5-54.5-45C139 302.4 91 255.2 91 189.3 91 141.6 127.8 104 174.2 104c28 0 55 14.1 72.1 37.1C263.4 118.1 290.7 104 318.7 104 365.1 104 421 141.6 421 189.3c0 65.9-51.7 113.8-113.6 166.7C283.1 376.8 264.9 393 256 401Z" fill="#fff"/>
+  <text x="256" y="302" text-anchor="middle" font-family="Arial, sans-serif" font-size="160" font-weight="800" fill="#ff8b94">J</text>
+</svg>
