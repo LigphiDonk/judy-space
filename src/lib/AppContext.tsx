@@ -17,7 +17,13 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const updateState = async (updates: Partial<AppState>) => {
-    const newState = await store.updateState(updates);
+    let optimisticState: AppState | null = null;
+    setState((currentState) => {
+      if (!currentState) return currentState;
+      optimisticState = { ...currentState, ...updates };
+      return optimisticState;
+    });
+    const newState = await store.updateState(updates, optimisticState || undefined);
     setState(newState);
   };
 

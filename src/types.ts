@@ -3,6 +3,7 @@ export type Todo = {
   text: string;
   completed: boolean;
   createdAt: number;
+  dueDate?: string; // YYYY-MM-DD
 };
 
 export type CycleRecord = {

@@ -14,6 +14,7 @@ const defaultState: AppState = {
 };
 
 const STATE_API_URL = '/api/state';
+let cachedState: AppState | null = null;
 
 function normalizeState(state: Partial<AppState> | null | undefined): AppState {
   return {
@@ -48,12 +49,14 @@ export const store = {
       });
       if (!response.ok) throw new Error('Failed to load server state');
       const state = normalizeState(await response.json());
+      cachedState = state;
 
       const localState = normalizeState(await localforage.getItem<AppState>('state'));
       if (!localStorage.getItem('judy_server_migrated')) {
         localStorage.setItem('judy_server_migrated', 'true');
         if (!hasUserData(state) && hasUserData(localState)) {
           await this.saveState(localState);
+          cachedState = localState;
           return localState;
         }
       }
@@ -61,12 +64,15 @@ export const store = {
       await localforage.setItem('state', state);
       return state;
     } catch {
-      return getLocalState();
+      const localState = await getLocalState();
+      cachedState = localState;
+      return localState;
     }
   },
   
   async saveState(state: AppState): Promise<void> {
     const normalizedState = normalizeState(state);
+    cachedState = normalizedState;
     try {
       const response = await fetch(STATE_API_URL, {
         method: 'PUT',
@@ -80,8 +86,8 @@ export const store = {
     await localforage.setItem('state', normalizedState);
   },
 
-  async updateState(updates: Partial<AppState>): Promise<AppState> {
-    const currentState = await this.getState();
+  async updateState(updates: Partial<AppState>, baseState?: AppState): Promise<AppState> {
+    const currentState = baseState || cachedState || await this.getState();
     const newState = normalizeState({ ...currentState, ...updates });
     await this.saveState(newState);
     return newState;
