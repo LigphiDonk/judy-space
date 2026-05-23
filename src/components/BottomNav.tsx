@@ -12,27 +12,27 @@ export function BottomNav() {
   ];
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-primary-100 px-6 py-3 pb-safe z-50 md:relative md:border-t-0 md:rounded-t-3xl md:-mt-6 shadow-[0_-4px_20px_-15px_rgba(0,0,0,0.1)]">
-      <div className="max-w-lg mx-auto flex justify-between items-center relative">
+    <nav className="fixed bottom-0 left-1/2 z-50 w-full max-w-lg -translate-x-1/2 border-t border-primary-100 bg-white/95 px-4 pt-2 pb-safe shadow-[0_-10px_30px_-24px_rgba(0,0,0,0.45)] backdrop-blur-xl">
+      <div className="mx-auto grid grid-cols-4 items-center gap-1">
         {navItems.map((item) => (
           <NavLink
             key={item.to}
             to={item.to}
             className={({ isActive }) =>
               cn(
-                "relative flex flex-col items-center justify-center w-16 h-12 transition-colors duration-300",
-                isActive ? "text-primary-500" : "text-gray-400 hover:text-primary-300"
+                "relative flex h-14 min-w-0 flex-col items-center justify-center rounded-2xl transition-colors duration-300",
+                isActive ? "text-primary-500" : "text-gray-500 hover:text-primary-300"
               )
             }
           >
             {({ isActive }) => (
               <>
-                <item.icon className={cn("w-6 h-6 z-10", isActive && "fill-primary-50")} strokeWidth={isActive ? 2.5 : 2} />
-                <span className="text-[10px] font-medium mt-1 z-10">{item.label}</span>
+                <item.icon className={cn("z-10 h-5 w-5", isActive && "fill-primary-50")} strokeWidth={isActive ? 2.5 : 2} />
+                <span className="z-10 mt-1 text-[11px] font-bold leading-none">{item.label}</span>
                 {isActive && (
                   <motion.div
                     layoutId="bubble"
-                    className="absolute inset-0 bg-primary-100 rounded-xl z-0"
+                    className="absolute inset-1 z-0 rounded-2xl bg-primary-100"
                     transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                   />
                 )}
